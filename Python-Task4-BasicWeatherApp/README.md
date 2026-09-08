@@ -27,7 +27,7 @@ This is a simple Python weather application that uses the OpenWeather API to fet
 ## How to Run
 
 1. Open the `basic_weather_app.py` file.
-2. Make sure the `requests` library is installed.
+2. Make sure the `requests` and `python-env` library is installed.
 3. Create a `.env` file in the project folder.
 4. Add your OpenWeather API key to the `.env` file in this format:
    API_KEY=your_api_key_here
