@@ -28,11 +28,13 @@ This is a simple Python weather application that uses the OpenWeather API to fet
 
 1. Open the `basic_weather_app.py` file.
 2. Make sure the `requests` library is installed.
-3. Add your OpenWeather API key to the program.
-4. Run the Python program.
-5. Enter the name of a city when prompted.
-6. The current weather information will be displayed.
-
+3. Create a `.env` file in the project folder.
+4. Add your OpenWeather API key to the `.env` file in this format:
+   API_KEY=your_api_key_here
+5. Make sure the `.env` file is not uploaded to GitHub.
+6. Run the Python program.
+7. Enter the name of a city when prompted.
+8. The current weather information will be displayed.
 ## Example Output
 
 ```text
