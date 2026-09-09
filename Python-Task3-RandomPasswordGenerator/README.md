@@ -34,7 +34,13 @@ Generated Password: aB7@xP2!
 
 ## Features
 
-- Generates random passwords.
-- Allows the user to choose the password length.
-- Uses letters, numbers, and special characters.
-- Simple and beginner-friendly Python program.
+- Generates random passwords
+- User can choose the password length
+- Minimum password length is 8 characters
+- Supports uppercase letters
+- Supports lowercase letters
+- Supports numbers
+- Supports symbols
+- User can select at least 2 character types
+- Guarantees at least one character from each selected type
+- Beginner-friendly Python project

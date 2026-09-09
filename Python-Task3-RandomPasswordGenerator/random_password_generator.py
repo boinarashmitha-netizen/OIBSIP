@@ -2,9 +2,11 @@ import random
 import string
 
 print("Random Password Generator")
+
 while True:
     try:
         length = int(input("Enter the length of the password (minimum 8): "))
+
         if length < 8:
             print("Password length must be at least 8 characters.")
             continue
@@ -17,29 +19,46 @@ while True:
 
         choices = input("Enter at least 2 choices (example: 123): ")
 
-        characters = ""
+        valid_choices = set(choices) & {"1", "2", "3", "4"}
 
-        if "1" in choices:
-            characters += string.ascii_uppercase
-
-        if "2" in choices:
-            characters += string.ascii_lowercase
-
-        if "3" in choices:
-            characters += string.digits
-
-        if "4" in choices:
-            characters += string.punctuation
-
-        if len(set(choices)) < 2:
-            print("Please select at least 2 different character types.")
+        if len(valid_choices) < 2:
+            print("Please select at least 2 valid character types.")
             continue
 
-        if characters == "":
-            print("Please select valid character types.")
+        character_sets = []
+
+        if "1" in valid_choices:
+            character_sets.append(string.ascii_uppercase)
+
+        if "2" in valid_choices:
+            character_sets.append(string.ascii_lowercase)
+
+        if "3" in valid_choices:
+            character_sets.append(string.digits)
+
+        if "4" in valid_choices:
+            character_sets.append(string.punctuation)
+
+        if length < len(character_sets):
+            print("Password length is too short for the selected character types.")
             continue
 
-        password = ''.join(random.choice(characters) for i in range(length))
+        password = []
+
+        # Add at least one character from every selected type
+        for character_set in character_sets:
+            password.append(random.choice(character_set))
+
+        # Fill the remaining positions
+        all_characters = "".join(character_sets)
+
+        for _ in range(length - len(password)):
+            password.append(random.choice(all_characters))
+
+        # Shuffle the password so the required characters are not always at the beginning
+        random.shuffle(password)
+
+        password = "".join(password)
 
         print("\nGenerated Password:", password)
 
